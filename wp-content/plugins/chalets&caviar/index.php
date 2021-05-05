@@ -45,3 +45,16 @@ add_action('init', function () {
         'supports' => ['title', 'editor', 'thumbnail']
     ]);
 });
+add_action('after_setup_theme', function () {
+    $options = get_option('ashe_options');
+    $options['blog_page_show_author'] = false;
+    update_option('ashe_options', $options);
+});
+add_action('pre_get_posts', function (WP_Query $query) {
+    if (is_admin() || 
+    !$query->is_main_query()
+    ) {
+        return;
+    }
+    $query->set('posts_per_page', 5);
+});

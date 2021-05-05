@@ -16,3 +16,6 @@
 !wp-content/themes/ashe/*/*/*/*/*
 !wp-content/themes/chalets&caviar/
 !wp-content/themes/chalets&caviar/*
+!wp-content/themes/chalets&caviar/templates
+!wp-content/themes/chalets&caviar/templates/grid
+!wp-content/themes/chalets&caviar/templates/grid/*
