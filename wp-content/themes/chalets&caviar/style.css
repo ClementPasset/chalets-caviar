@@ -2,3 +2,9 @@
 Theme Name: Chalets & Caviar
 Template: ashe
 */
+.header-logo-a{
+    text-shadow: 2px 2px 4px black;
+}
+.wp-post-image{
+    border-radius: .5rem;
+}

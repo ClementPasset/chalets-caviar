@@ -95,7 +95,7 @@ function ashe_options( $control ) {
 
 	// merge defaults and options
 	$ashe_defaults = wp_parse_args( get_option('ashe_options'), $ashe_defaults );
-
+	
 	// return control
 	return $ashe_defaults[ $control ];
 

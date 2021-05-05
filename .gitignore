@@ -2,6 +2,10 @@
 !.gitignore
 !wp-content/
 !wp-content/*
+!wp-content/plugins/
+!wp-content/plugins/*
+!wp-content/plugins/chalets&caviar
+!wp-content/plugins/chalets&caviar/*
 !wp-content/themes/
 !wp-content/themes/*
 !wp-content/themes/ashe/
