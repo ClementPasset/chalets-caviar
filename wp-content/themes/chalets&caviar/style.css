@@ -8,3 +8,7 @@ Template: ashe
 .wp-post-image{
     border-radius: .5rem;
 }
+.listing-title{
+    margin-bottom: 3rem;
+    text-align: center;
+}

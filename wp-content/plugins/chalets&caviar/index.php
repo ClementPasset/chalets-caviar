@@ -61,3 +61,12 @@ add_action('pre_get_posts', function (WP_Query $query) {
     }
     $query->set('posts_per_page', 5);
 });
+
+function chalcav_is_rent_url()
+{
+    return 'rent' === get_query_var('property_type');
+}
+function chalcav_is_buy_url()
+{
+    return 'buy' === get_query_var('property_type');
+}
