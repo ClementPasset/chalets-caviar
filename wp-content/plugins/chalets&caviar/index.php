@@ -6,6 +6,8 @@
  */
 defined('ABSPATH') or die();
 
+require_once('url.php');
+
 register_activation_hook(__FILE__, 'flush_rewrite_rules');
 register_deactivation_hook(__FILE__, 'flush_rewrite_rules');
 
@@ -51,8 +53,9 @@ add_action('after_setup_theme', function () {
     update_option('ashe_options', $options);
 });
 add_action('pre_get_posts', function (WP_Query $query) {
-    if (is_admin() || 
-    !$query->is_main_query()
+    if (
+        is_admin() ||
+        !$query->is_main_query()
     ) {
         return;
     }
