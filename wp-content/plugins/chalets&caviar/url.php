@@ -24,5 +24,6 @@ add_action('pre_get_posts', function (WP_Query $query) {
 });
 
 add_action('init', function () {
+    add_rewrite_rule('properties/?$', 'index.php?post_type=properties', 'top');
     add_rewrite_rule('properties/(buy|rent)/?$', 'index.php?post_type=properties&property_type=$matches[1]', 'top');
 });
