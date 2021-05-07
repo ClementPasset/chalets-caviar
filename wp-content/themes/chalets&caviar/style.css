@@ -12,3 +12,7 @@ Template: ashe
     margin-bottom: 3rem;
     text-align: center;
 }
+.card{
+    max-height:100%;
+    margin: 1rem 0;
+}

@@ -7,13 +7,13 @@
 		get_template_part('templates/grid/category', 'description');
 	}
 
-		if (chalcav_is_rent_url()) {
-			echo '<h1 class="listing-title">Nos chalets à louer</h1>';
-		}elseif (chalcav_is_buy_url()) {
-			echo '<h1 class="listing-title">Nos chalets à vendre</h1>';
-		}else{
-			echo '<h1 class="listing-title">Tous nos chalets</h1>';
-		}
+	if (chalcav_is_rent_url()) {
+		echo '<h1 class="listing-title">Nos chalets à louer</h1>';
+	} elseif (chalcav_is_buy_url()) {
+		echo '<h1 class="listing-title">Nos chalets à vendre</h1>';
+	} else {
+		echo '<h1 class="listing-title">Tous nos chalets</h1>';
+	}
 
 	// Blog Grid
 	echo '<ul class="blog-grid">';
@@ -85,20 +85,24 @@
 
 							<div class="post-content">
 								<?php
-
-								if (ashe_options('blog_page_post_description') === 'content') {
-									the_content('');
-								} elseif (ashe_options('blog_page_post_description') === 'excerpt') {
-									ashe_excerpt(33);
+								$type = get_field('property_type');
+								$price=get_field('property_price');
+								if ($type === 'rent'){
+									$price_text = 'Louer : ' . number_format(get_field('property_price'),0,',',' ') . ' €/semaine';
+								}elseif($type==='buy'){
+									$price_text = 'Acheter : ' . number_format(get_field('property_price'),0,',',' ') . ' €';
 								}
-
 								?>
+								<div class="card">
+									<div class="card__price"><?= $price_text ?></div>
+									<div class="card__options"><i class="fas fa-bed"></i><?= get_field('property_bedrooms') ?></div>
+								</div>
 							</div>
 
 						<?php endif; ?>
 
 						<div class="read-more">
-							<a href="<?php echo esc_url(get_permalink()); ?>"><?php esc_html_e('read more', 'ashe'); ?></a>
+							<a href="<?php echo esc_url(get_permalink()); ?>"><?php esc_html_e('Voir le bien', 'ashe'); ?></a>
 						</div>
 
 						<?php ashe_post_sharing(); ?>
