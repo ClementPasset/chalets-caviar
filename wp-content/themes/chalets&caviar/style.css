@@ -12,7 +12,16 @@ Template: ashe
     margin-bottom: 3rem;
     text-align: center;
 }
-.card{
-    max-height:100%;
+.card, .card>*{
     margin: 1rem 0;
+}
+.fas{
+    font-size:1.5rem;
+}
+.post-media a{
+    backdrop-filter: grayscale(.8);
+    transition: backdrop-filter .3s;
+}
+.post-media a:hover{
+    backdrop-filter: grayscale(0);
 }

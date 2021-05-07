@@ -86,16 +86,31 @@
 							<div class="post-content">
 								<?php
 								$type = get_field('property_type');
-								$price=get_field('property_price');
-								if ($type === 'rent'){
-									$price_text = 'Louer : ' . number_format(get_field('property_price'),0,',',' ') . ' €/semaine';
-								}elseif($type==='buy'){
-									$price_text = 'Acheter : ' . number_format(get_field('property_price'),0,',',' ') . ' €';
+								$price = get_field('property_price');
+								$options = [
+									'property_bedrooms' => 'fas fa-bed',
+									'property_bathrooms' => 'fas fa-bath',
+									'property_surface' => 'fas fa-expand-arrows-alt'
+								];
+								$capacity = get_field('property_capacity');
+								$options_text = array_reduce(array_keys($options), function ($carry, $item) use ($options) {
+									if (get_field($item) !== null) {
+										return $carry . '<span><i class="' . $options[$item] . '"></i> ' . get_field($item) . ($item==='property_surface' ? 'm²' :'') . '</span>&nbsp;&nbsp;&nbsp;&nbsp;';
+									}
+									return $carry;
+								});
+								if ($type === 'rent') {
+									$price_text = 'Louer : ' . number_format(get_field('property_price'), 0, ',', ' ') . ' €/semaine';
+								} elseif ($type === 'buy') {
+									$price_text = 'Acheter : ' . number_format(get_field('property_price'), 0, ',', ' ') . ' €';
 								}
 								?>
 								<div class="card">
 									<div class="card__price"><?= $price_text ?></div>
-									<div class="card__options"><i class="fas fa-bed"></i><?= get_field('property_bedrooms') ?></div>
+									<div class="card__options"><?= $options_text ?></div>
+									<?php if ($capacity) : ?>
+										<div class="card__capacity">De <?= $capacity ?> personnes.</div>
+									<?php endif ?>
 								</div>
 							</div>
 
