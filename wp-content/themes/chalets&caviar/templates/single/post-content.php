@@ -76,7 +76,11 @@
 						<?php endif ?>
 						<p class="card__element">Nombre de salle de bain : <?= get_field('property_bathrooms') ?></p>
 						<p class="card__element">Prix : <?= $price ?></p>
+<<<<<<< HEAD
 						<a href="/index.php/nous-contacter/" alt="Nous contacter" class="wp-block-button__link">Nous contacter</a>
+=======
+						<a href="/index.php/nous-contacter/?id_chalet=<?= get_the_ID() ?>" alt="Nous contacter" class="wp-block-button__link">Nous contacter</a>
+>>>>>>> 88b6c68 (Single des biens)
 					</div>
 				<?php else : ?>
 					<?php the_content('') ?>
