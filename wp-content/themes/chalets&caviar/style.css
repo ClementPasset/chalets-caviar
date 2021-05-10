@@ -19,9 +19,31 @@ Template: ashe
     font-size:1.5rem;
 }
 .post-media a{
-    backdrop-filter: grayscale(.8);
-    transition: backdrop-filter .3s;
+    backdrop-filter: grayscale(.6);
+    transition: backdrop-filter .2s;
 }
 .post-media a:hover{
     backdrop-filter: grayscale(0);
+}
+.wp-block-separator{
+    margin: 2rem auto!important;
+}
+.post-content .single-card{
+    margin: 1rem 0;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+}
+.post-content .single-card>*{
+    margin: 1rem 0;
+}
+.post-content .single-card .card__title{
+    text-align: center;
+    grid-column: span 2;
+}
+.post-content .single-card .card__element{
+    text-align: center;
+}
+.post-content .wp-block-button__link{
+    grid-column: span 2;
 }

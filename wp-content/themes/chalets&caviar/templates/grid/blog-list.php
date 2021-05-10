@@ -95,7 +95,7 @@
 								$capacity = get_field('property_capacity');
 								$options_text = array_reduce(array_keys($options), function ($carry, $item) use ($options) {
 									if (get_field($item) !== null) {
-										return $carry . '<span><i class="' . $options[$item] . '"></i> ' . get_field($item) . ($item==='property_surface' ? 'm²' :'') . '</span>&nbsp;&nbsp;&nbsp;&nbsp;';
+										return $carry . '<span><i class="' . $options[$item] . '"></i> ' . get_field($item) . ($item === 'property_surface' ? 'm²' : '') . '</span>&nbsp;&nbsp;&nbsp;&nbsp;';
 									}
 									return $carry;
 								});
